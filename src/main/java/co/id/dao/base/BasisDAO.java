@@ -14,6 +14,8 @@ public abstract class BasisDAO<T> {
 
     protected BasisDAO() {
         sessionFactory = HibernateUtil.getSessionFactory();
+        
+        session = sessionFactory.openSession();
     }
     
     public Session getSession() {
@@ -33,7 +35,7 @@ public abstract class BasisDAO<T> {
     }
     
     public void save(T entity){
-        session = sessionFactory.openSession();
+        //session = sessionFactory.openSession();
         
         session.getTransaction().begin();  
         session.save(entity);
@@ -41,7 +43,7 @@ public abstract class BasisDAO<T> {
     }
 
     public void saveOrUpdate(T entity){
-        session = sessionFactory.openSession();
+        //session = sessionFactory.openSession();
         
         session.getTransaction().begin();  
         session.save(entity);
@@ -49,7 +51,7 @@ public abstract class BasisDAO<T> {
     }
 
     public void delete(T entity){
-        session = sessionFactory.openSession();
+        //session = sessionFactory.openSession();
         
         session.getTransaction().begin();  
         session.save(entity);

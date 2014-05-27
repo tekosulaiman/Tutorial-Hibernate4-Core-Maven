@@ -1,35 +1,23 @@
 package co.id.desktopui;
 
-import co.id.model.Person;
-import co.id.service.PersonService;
-import co.id.service.impl.PersonServiceImpl;
+import co.id.model.Employee;
+import co.id.service.EmployeeService;
+import co.id.service.impl.EmployeeServiceImpl;
+import co.id.util.table.EmployeeTableModel;
+import java.util.List;
 
 /**
  * @author tombisnis@yahoo.com
  */
-public class FormFristHibernateApplication extends javax.swing.JInternalFrame {
+public class FormHibernateSelectClause extends javax.swing.JInternalFrame {
 
-    private Person person;
-    private PersonService personService;
-    
+    private final Employee employee = new Employee();
+    private List<Employee> employees;
+    private final EmployeeTableModel employeeTableModel = new EmployeeTableModel();
+    private final EmployeeService employeeService = new EmployeeServiceImpl();
+
     private boolean visible = false;
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public PersonService getPersonService() {
-        return personService;
-    }
-
-    public void setPersonService(PersonService personService) {
-        this.personService = personService;
-    }
-    
     public boolean getVisible() {
         return visible;
     }
@@ -38,20 +26,21 @@ public class FormFristHibernateApplication extends javax.swing.JInternalFrame {
         this.visible = visible;
     }
     
-    public FormFristHibernateApplication() {
+    public FormHibernateSelectClause() {
         this.visible = false;
-        
+
+        employeeTableModel.setList(employeeService.getAllEmployees());
+
         initComponents();
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
@@ -63,7 +52,7 @@ public class FormFristHibernateApplication extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Form Frist Hibernate Application");
+        setTitle("Form Hibernate Select Clause");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -83,16 +72,12 @@ public class FormFristHibernateApplication extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setText("Name *");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.ipadx = 150;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jTextField1, gridBagConstraints);
+        jTable1.setModel(employeeTableModel);
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -100,7 +85,7 @@ public class FormFristHibernateApplication extends javax.swing.JInternalFrame {
 
         jToolBar1.setRollover(true);
 
-        jButton1.setText("Save");
+        jButton1.setText("...");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -122,12 +107,7 @@ public class FormFristHibernateApplication extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        person = new Person();
-        personService = new PersonServiceImpl();
-
-        person.setName(jTextField1.getText());
         
-        personService.save(person);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
@@ -140,17 +120,13 @@ public class FormFristHibernateApplication extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
-
-    void getjTable1() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
