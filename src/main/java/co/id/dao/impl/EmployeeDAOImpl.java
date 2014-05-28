@@ -4,23 +4,56 @@ import co.id.dao.EmployeeDAO;
 import co.id.dao.base.BasisDAO;
 import co.id.model.Employee;
 import java.util.List;
+import org.hibernate.Query;
 
 /**
  * @author tombisnis@yahoo.com
  */
 public class EmployeeDAOImpl extends BasisDAO<Employee> implements EmployeeDAO{
 
-    /*Pastikan data Employee mempunya id  = 1*/
     @Override
-    public List<Employee> getAllEmployees() {
-        //getSessionFactory().openSession();
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //return (List<Employee>) getSession().createQuery("select emp.name from Employee emp where emp.id = 1");
-        //return (List<Employee>) getSession().createCriteria(Employee.class).list();
-        //return (List<Employee>) getSession().createCriteria(Employee.class).list();
-        //return (List<Employee>) getSessionFactory().getCurrentSession().createCriteria(Employee.class).list();
+    public List<Employee> getSelectClauseEmployees() {
         
-        List list = getSession().createCriteria(Employee.class).list();
+        /*Cara Pertama*/
+        String hql = "SELECT E.id, E.name FROM Employee E";
+        Query query = getSession().createQuery(hql);
+        List list = query.list();
+        
+        /*Cara Kedua*/
+        /*List list = getSession().createQuery("SELECT E.id, E.name FROM Employee E").list();*/
+        
         return list;
-    } 
+    }
+
+    @Override
+    public List<Employee> getFromClauseEmployees() {
+        
+        /*Cara Pertama*/
+        String hql = "FROM Employee";
+        Query query = getSession().createQuery(hql);
+        List list = query.list();
+        
+        /*Cara Kedua*/
+        /*List list = getSession().createQuery("FROM Employee").list();*/
+        
+        return list;
+    }
+
+    @Override
+    public List<Employee> getWhereClauseEmployees() {
+         /*Cara Pertama*/
+        String hql = "FROM Employee E WHERE E.id = 1";
+        Query query = getSession().createQuery(hql);
+        List list = query.list();
+        
+        /*Cara Kedua*/
+        /*List list = getSession().createQuery("FROM Employee E WHERE E.id = 1").list();*/
+        
+        return list;
+    }
+
+    @Override
+    public List<Employee> getOrderByClauseEmployees() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -10,7 +10,9 @@ import java.util.logging.Logger;
 public class MenuUtama extends javax.swing.JFrame {
 
     private FormFristHibernateApplication formFristHibernateApplication = new FormFristHibernateApplication();
-    private FormHibernateSelectClause formHibernateSelectClause = new FormHibernateSelectClause();
+    private FormHqlSelectClause formHqlSelectClause = new FormHqlSelectClause();
+    private FormHqlFromClause formHqlFromClause = new FormHqlFromClause();
+    private FormHqlWhereClause formHqlWhereClause = new FormHqlWhereClause();
     
     public MenuUtama() {
         setLocationRelativeTo(null);
@@ -35,6 +37,14 @@ public class MenuUtama extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
@@ -55,6 +65,9 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jLabel1.setText("Training Hibernate 4");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel6.add(jLabel1, gridBagConstraints);
@@ -62,13 +75,13 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel2.setText("First Hibernate Application");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel6.add(jLabel2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -82,29 +95,31 @@ public class MenuUtama extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel6.add(jButton1, gridBagConstraints);
 
         jLabel3.setText("Hibernate Query Language (HQL)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel6.add(jLabel3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel6.add(jSeparator2, gridBagConstraints);
 
-        jLabel4.setText("Hibernate select Clause");
+        jLabel4.setText("Select Clause");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel6.add(jLabel4, gridBagConstraints);
 
@@ -120,6 +135,76 @@ public class MenuUtama extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel6.add(jButton2, gridBagConstraints);
 
+        jLabel5.setText("From Clause");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jLabel5, gridBagConstraints);
+
+        jButton3.setText("Run it!");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jButton3, gridBagConstraints);
+
+        jLabel6.setText("Where Clause");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jLabel6, gridBagConstraints);
+
+        jButton4.setText("Run it!");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jButton4, gridBagConstraints);
+
+        jLabel7.setText("Order By Clause");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jLabel7, gridBagConstraints);
+
+        jButton5.setText("Run it!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jButton5, gridBagConstraints);
+
+        jLabel8.setText("Group By Clause");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jLabel8, gridBagConstraints);
+
+        jButton6.setText("Run it!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel6.add(jButton6, gridBagConstraints);
+
         jSplitPane1.setLeftComponent(jPanel6);
 
         jPanel7.setLayout(new java.awt.BorderLayout());
@@ -132,7 +217,7 @@ public class MenuUtama extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 259, Short.MAX_VALUE)
+            .addGap(0, 268, Short.MAX_VALUE)
         );
 
         jPanel7.add(jDesktopPane1, java.awt.BorderLayout.CENTER);
@@ -180,31 +265,75 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(!formHibernateSelectClause.getVisible() && !formHibernateSelectClause.isShowing()) {
-            formHibernateSelectClause = new FormHibernateSelectClause();
-            jDesktopPane1.add(formHibernateSelectClause);
-            formHibernateSelectClause.setVisible(true);
+        if(!formHqlSelectClause.getVisible() && !formHqlSelectClause.isShowing()) {
+            formHqlSelectClause = new FormHqlSelectClause();
+            jDesktopPane1.add(formHqlSelectClause);
+            formHqlSelectClause.setVisible(true);
         }else{
             try{
-                formHibernateSelectClause.setSelected(true);
-                formHibernateSelectClause.getDesktopPane().getDesktopManager().deiconifyFrame(formHibernateSelectClause);
-                formHibernateSelectClause.getDesktopPane().getDesktopManager().maximizeFrame(formHibernateSelectClause);
-                formHibernateSelectClause.getDesktopPane().getDesktopManager().minimizeFrame(formHibernateSelectClause);
-                formHibernateSelectClause.moveToFront();
+                formHqlSelectClause.setSelected(true);
+                formHqlSelectClause.getDesktopPane().getDesktopManager().deiconifyFrame(formHqlSelectClause);
+                formHqlSelectClause.getDesktopPane().getDesktopManager().maximizeFrame(formHqlSelectClause);
+                formHqlSelectClause.getDesktopPane().getDesktopManager().minimizeFrame(formHqlSelectClause);
+                formHqlSelectClause.moveToFront();
             }catch(PropertyVetoException ex) {
                 Logger.getLogger(MenuUtama.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(!formHqlFromClause.getVisible() && !formHqlFromClause.isShowing()) {
+            formHqlFromClause = new FormHqlFromClause();
+            jDesktopPane1.add(formHqlFromClause);
+            formHqlFromClause.setVisible(true);
+        }else{
+            try{
+                formHqlFromClause.setSelected(true);
+                formHqlFromClause.getDesktopPane().getDesktopManager().deiconifyFrame(formHqlFromClause);
+                formHqlFromClause.getDesktopPane().getDesktopManager().maximizeFrame(formHqlFromClause);
+                formHqlFromClause.getDesktopPane().getDesktopManager().minimizeFrame(formHqlFromClause);
+                formHqlFromClause.moveToFront();
+            }catch(PropertyVetoException ex) {
+                Logger.getLogger(MenuUtama.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(!formHqlWhereClause.getVisible() && !formHqlWhereClause.isShowing()) {
+            formHqlWhereClause = new FormHqlWhereClause();
+            jDesktopPane1.add(formHqlWhereClause);
+            formHqlWhereClause.setVisible(true);
+        }else{
+            try{
+                formHqlWhereClause.setSelected(true);
+                formHqlWhereClause.getDesktopPane().getDesktopManager().deiconifyFrame(formHqlWhereClause);
+                formHqlWhereClause.getDesktopPane().getDesktopManager().maximizeFrame(formHqlWhereClause);
+                formHqlWhereClause.getDesktopPane().getDesktopManager().minimizeFrame(formHqlWhereClause);
+                formHqlWhereClause.moveToFront();
+            }catch(PropertyVetoException ex) {
+                Logger.getLogger(MenuUtama.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

@@ -41,7 +41,22 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public List<Employee> getAllEmployees() {
-        return employeeDAO.getAllEmployees();
+    public List<Employee> getSelectClauseEmployees(){
+        return employeeDAO.getSelectClauseEmployees();
+    }
+
+    @Override
+    public List<Employee> getFromClauseEmployees(){
+        return employeeDAO.getFromClauseEmployees();
+    }
+
+    @Override
+    public List<Employee> getWhereClauseEmployees(){
+        return employeeDAO.getWhereClauseEmployees();
+    }
+
+    @Override
+    public List<Employee> getOrderByClauseEmployees(){
+        return employeeDAO.getOrderByClauseEmployees();
     }
 }

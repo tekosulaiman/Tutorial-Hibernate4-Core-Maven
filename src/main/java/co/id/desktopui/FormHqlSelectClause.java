@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author tombisnis@yahoo.com
  */
-public class FormHibernateSelectClause extends javax.swing.JInternalFrame {
+public class FormHqlSelectClause extends javax.swing.JInternalFrame {
 
     private final Employee employee = new Employee();
     private List<Employee> employees;
@@ -26,11 +26,12 @@ public class FormHibernateSelectClause extends javax.swing.JInternalFrame {
         this.visible = visible;
     }
     
-    public FormHibernateSelectClause() {
+    public FormHqlSelectClause() {
         this.visible = false;
 
-        employeeTableModel.setList(employeeService.getAllEmployees());
-
+        //employeeTableModel.setList(employeeService.getSelectClauseEmployees());
+        System.out.println("Select Clause >>> "+employeeService.getSelectClauseEmployees());
+        
         initComponents();
     }
 
@@ -52,7 +53,7 @@ public class FormHibernateSelectClause extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Form Hibernate Select Clause");
+        setTitle("Form Hql Select Clause");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
